@@ -1,7 +1,14 @@
 import React from "react";
 
 const WhatsMyThing = () => {
-	return <h1>What's My Thing</h1>;
-};
+  return (
+    <div>
+      <form>
+        <input type="file"></input>
+        <input type="submit">Submit Thing</input>
+      </form>
+    </div>
+  )
+}
 
 export default WhatsMyThing;

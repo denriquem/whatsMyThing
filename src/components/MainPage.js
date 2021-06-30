@@ -1,8 +1,11 @@
 import React from "react";
-import WhatsMyThing from "./whatsMyThing";
 
 const MainPage = () => {
-	return <WhatsMyThing />;
-};
+	return (
+    <div>
+      <button >What's My Thing?</button>
+      <button>What's Their Thing?</button>
+    </div>
+  )};
 
 export default MainPage;
