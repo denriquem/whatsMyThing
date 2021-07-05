@@ -1,22 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
+import "./whatsMyThing.css";
 
-const WhatsMyThing = () => {
+const WhatsMyThing = (props) => {
+	const [enteredName, setEnteredName] = useState("");
+	const [enteredDescription, setEnteredDescription] = useState("");
+	const [enteredImage, setEnteredImage] = useState(null);
+
+	const nameChangeHandler = (event) => {
+		setEnteredName(event.target.value);
+	};
+
+	const descriptionChangeHander = (event) => {
+		setEnteredDescription(event.target.value);
+	};
+
+	const imageChangeHander = (event) => {
+		setEnteredImage(event.target.files[0]);
+	};
+
+	const submitHander = (event) => {
+		event.preventDefault();
+
+		const formData = {
+			name: enteredName,
+			description: enteredDescription,
+			image: enteredImage,
+		};
+		props.onSaveFormData(formData);
+
+		console.log(formData);
+
+		setEnteredName("");
+		setEnteredDescription("");
+		setEnteredImage(null);
+	};
+
 	return (
 		<div>
-			<div>Test What's My thing</div>
-			<form>
-				<div className="new-expense__controls">
-					<div className="new expense__control">
-						<label>Write about your thing</label>
-						<textarea>
-							This is the area to write a bit about what it is
-						</textarea>
+			<div className="text-large-black">Submit yer thing ya schmuck</div>
+			<form onSubmit={submitHander} className="form">
+				<div className="form-section">
+					<div className="input-1">
+						<label className="text-large">
+							Name Of Thing:
+							<input
+								className="input-area"
+								type="text"
+								value={enteredName}
+								onChange={nameChangeHandler}
+							/>
+						</label>
 					</div>
-					<div className="new expense__control">
-						<label>This is the form bit</label>
-						<textarea>
-							This is the area to write a bit about what it is
-						</textarea>
+					<div className="input-1">
+						<label className="text-large">Submit Image:</label>
+						<input
+							className="input-area-file"
+							type="file"
+							onChange={imageChangeHander}
+						/>
+					</div>
+					<div className="input-1">
+						<label className="text-large">Description:</label>
+						<textarea
+							className="input-area"
+							value={enteredDescription}
+							onChange={descriptionChangeHander}
+						></textarea>
+					</div>
+					<div className="input-1">
+						<input
+							className="submit-button"
+							type="submit"
+							value="Submit"
+						/>
 					</div>
 				</div>
 			</form>
