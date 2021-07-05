@@ -1,22 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
+import "./whatsMyThing.css";
 
 const WhatsMyThing = () => {
+	const [enteredName, setEnteredName] = useState("");
+	const [enteredDescription, setEnteredDescription] = useState("");
+	const [enteredImage, setEnteredImage] = useState(null);
+
+	const nameChangeHandler = (event) => {
+		setEnteredName(event.target.value);
+	};
+
+	const descriptionChangeHander = (event) => {
+		setEnteredDescription(event.target.value);
+	};
+
+	const imageChangeHander = (event) => {
+		setEnteredImage(event.target.files[0]);
+	};
+
+	const submitHander = (event) => {
+		event.preventDefault();
+		console.log(enteredName);
+		console.log(enteredDescription);
+		console.log(enteredImage);
+	};
+
 	return (
 		<div>
-			<div>Test What's My thing</div>
-			<form>
-				<div className="new-expense__controls">
-					<div className="new expense__control">
-						<label>Write about your thing</label>
-						<textarea>
-							This is the area to write a bit about what it is
-						</textarea>
+			<div>Submit yer thing ya schmuck</div>
+			<form onSubmit={submitHander}>
+				<div className="form-section">
+					<div className="input-1">
+						<label>
+							Name of thing:
+							<input
+								className="input-area"
+								type="text"
+								value={enteredName}
+								onChange={nameChangeHandler}
+							/>
+						</label>
 					</div>
-					<div className="new expense__control">
-						<label>This is the form bit</label>
-						<textarea>
-							This is the area to write a bit about what it is
-						</textarea>
+					<div className="input-1">
+						<label>Please submit</label>
+						<input
+							className="input-area"
+							type="file"
+							onChange={imageChangeHander}
+						/>
+					</div>
+					<div className="input-1">
+						<label>Write about your thing</label>
+						<textarea
+							className="input-area"
+							value={enteredDescription}
+							onChange={descriptionChangeHander}
+						></textarea>
+					</div>
+					<div className="input-1">
+						<input
+							className="submit-button"
+							type="submit"
+							value="Submit"
+						/>
 					</div>
 				</div>
 			</form>
