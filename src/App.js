@@ -2,11 +2,10 @@ import "./App.css";
 import "./components/MainPage";
 import MainPage from "./components/MainPage";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import { Heading, WhatsMyThing, WhatsTheirThing } from "./components";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Heading from "./components/Heading";
 import WhatsMyThing from "./components/whatsMyThing";
-import WhatsTheirThing from "./components/WhatsTheirThing";
+import WhatsTheirThing from "./components/guess/index";
 
 function App() {
 	const saveFormDataHandler = (formData) => {
