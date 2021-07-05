@@ -38,12 +38,12 @@ const WhatsMyThing = (props) => {
 
 	return (
 		<div>
-			<div>Submit yer thing ya schmuck</div>
-			<form onSubmit={submitHander}>
+			<div className="text-large-black">Submit yer thing ya schmuck</div>
+			<form onSubmit={submitHander} className="form">
 				<div className="form-section">
 					<div className="input-1">
-						<label>
-							Name of thing:
+						<label className="text-large">
+							Name Of Thing:
 							<input
 								className="input-area"
 								type="text"
@@ -53,15 +53,15 @@ const WhatsMyThing = (props) => {
 						</label>
 					</div>
 					<div className="input-1">
-						<label>Please submit</label>
+						<label className="text-large">Submit Image:</label>
 						<input
-							className="input-area"
+							className="input-area-file"
 							type="file"
 							onChange={imageChangeHander}
 						/>
 					</div>
 					<div className="input-1">
-						<label>Write about your thing</label>
+						<label className="text-large">Description:</label>
 						<textarea
 							className="input-area"
 							value={enteredDescription}
