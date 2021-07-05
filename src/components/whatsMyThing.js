@@ -26,7 +26,6 @@ const WhatsMyThing = (props) => {
 			description: enteredDescription,
 			image: enteredImage,
 		};
-
 		props.onSaveFormData(formData);
 
 		console.log(formData);
