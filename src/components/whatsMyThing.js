@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./whatsMyThing.css";
 
-const WhatsMyThing = () => {
+const WhatsMyThing = (props) => {
 	const [enteredName, setEnteredName] = useState("");
 	const [enteredDescription, setEnteredDescription] = useState("");
 	const [enteredImage, setEnteredImage] = useState(null);
@@ -20,9 +20,20 @@ const WhatsMyThing = () => {
 
 	const submitHander = (event) => {
 		event.preventDefault();
-		console.log(enteredName);
-		console.log(enteredDescription);
-		console.log(enteredImage);
+
+		const formData = {
+			name: enteredName,
+			description: enteredDescription,
+			image: enteredImage,
+		};
+
+		props.onSaveFormData(formData);
+
+		console.log(formData);
+
+		setEnteredName("");
+		setEnteredDescription("");
+		setEnteredImage(null);
 	};
 
 	return (

@@ -9,6 +9,14 @@ import WhatsMyThing from "./components/whatsMyThing";
 import WhatsTheirThing from "./components/WhatsTheirThing";
 
 function App() {
+	const saveFormDataHandler = (formData) => {
+		const formInput = {
+			...formData,
+		};
+
+		console.log(`App.js has the form data now: ${formInput.name}`);
+	};
+
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -21,7 +29,9 @@ function App() {
 							<MainPage />
 						</Route>
 						<Route path="/submit">
-							<WhatsMyThing />
+							<WhatsMyThing
+								onSaveFormData={saveFormDataHandler}
+							/>
 						</Route>
 						<Route path="/guess">
 							<WhatsTheirThing />
